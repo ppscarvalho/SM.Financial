@@ -35,7 +35,7 @@ namespace SM.Financial.Core.Application.Handlers
 
             var result = await _billToPayRepository.UnitOfWork.Commit();
 
-            return new DefaultResult { Result = entity, Success = result };
+            return new DefaultResult { Result = entity, Success = result, Message = result ? "OK" : "Error" };
         }
 
         public async Task<DefaultResult> Handle(UpdateBillToPayCommand request, CancellationToken cancellationToken)
@@ -47,7 +47,7 @@ namespace SM.Financial.Core.Application.Handlers
 
             var result = await _billToPayRepository.UnitOfWork.Commit();
 
-            return new DefaultResult { Result = entity, Success = result };
+            return new DefaultResult { Result = entity, Success = result, Message = result ? "OK" : "Error" };
         }
 
         private bool ValidateCommand(CommandHandler message)

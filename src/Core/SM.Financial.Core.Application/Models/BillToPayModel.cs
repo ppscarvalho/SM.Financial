@@ -5,7 +5,7 @@ namespace SM.Financial.Core.Application.Models
     public class BillToPayModel
     {
         public Guid Id { get; set; }
-        public Guid SuuplierId { get; set; }
+        public Guid SupplierId { get; set; }
         public string? Description { get; set; }
         public DateTime DueDate { get; set; }
         public decimal Amout { get; set; }

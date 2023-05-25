@@ -1,4 +1,5 @@
-﻿using SM.Financial.Core.Domain.Enuns;
+﻿using SM.Financial.Core.Application.Commands.BillToPay.Validation;
+using SM.Financial.Core.Domain.Enuns;
 using SM.Resource.Messagens;
 
 namespace SM.Financial.Core.Application.Commands.BillToPay
@@ -18,6 +19,12 @@ namespace SM.Financial.Core.Application.Commands.BillToPay
             DueDate = dueDate;
             Amout = amout;
             Status = EStatus.Unpaid;
+        }
+
+        public override bool IsValid()
+        {
+            ValidationResult = new AddBillToPayCommandValidation().Validate(this);
+            return ValidationResult.IsValid;
         }
     }
 }
