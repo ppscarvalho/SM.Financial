@@ -11,7 +11,7 @@ namespace SM.Financial.Core.Domain.Validations
                 .NotEmpty()
                 .WithMessage("O id da conta não foi informado.");
 
-            RuleFor(c => c.SuuplierId)
+            RuleFor(c => c.SupplierId)
                 .NotEmpty()
                 .WithMessage("O id do fornecedor não foi informado.");
 

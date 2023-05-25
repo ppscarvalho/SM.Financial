@@ -5,23 +5,25 @@ VisualStudioVersion = 17.6.33717.318
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{932336E0-A054-490E-97B8-7F287C34EF36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.Financial.Core.Domain", "src\Core\SM.Financial.Core.Domain\SM.Financial.Core.Domain.csproj", "{B5B7DB86-18EA-448A-A7DB-165664D6487D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SM.Financial.Core.Domain", "src\Core\SM.Financial.Core.Domain\SM.Financial.Core.Domain.csproj", "{B5B7DB86-18EA-448A-A7DB-165664D6487D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.Financial.Core.Application", "src\Core\SM.Financial.Core.Application\SM.Financial.Core.Application.csproj", "{2675CB01-A0E1-4326-9B03-9B672185A175}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SM.Financial.Core.Application", "src\Core\SM.Financial.Core.Application\SM.Financial.Core.Application.csproj", "{2675CB01-A0E1-4326-9B03-9B672185A175}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apresentation", "Apresentation", "{B5EF3611-7400-4495-AE0E-2FB10AFA3C53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.Financial.Apresentation.Api", "src\Apresentation\SM.Financial.Apresentation.Api\SM.Financial.Apresentation.Api.csproj", "{0714BB0A-07D1-4537-A1D4-EEF9C9478ACB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SM.Financial.Apresentation.Api", "src\Apresentation\SM.Financial.Apresentation.Api\SM.Financial.Apresentation.Api.csproj", "{0714BB0A-07D1-4537-A1D4-EEF9C9478ACB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{A4B74FFF-0685-4B4A-9746-14F12C20FAFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SM.Financial.Infrastructure", "src\Infrastructure\SM.Financial.Infrastructure\SM.Financial.Infrastructure.csproj", "{A791A269-78F6-46D5-AE8E-CF8E8395E24B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SM.Financial.Infrastructure", "src\Infrastructure\SM.Financial.Infrastructure\SM.Financial.Infrastructure.csproj", "{A791A269-78F6-46D5-AE8E-CF8E8395E24B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SM.MQ", "..\SM.Util\src\SM.MQ\SM.MQ.csproj", "{E9C95ED1-3A7B-4FC3-A1DD-C10D934F7EC9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SM.Resource", "..\SM.Util\src\SM.Resource\SM.Resource.csproj", "{BA6B49CF-0F42-43B7-8ACD-EE0ED901CAB4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SM.Util", "..\SM.Util\src\SM.Util\SM.Util.csproj", "{3179F631-2096-48F2-AE7E-CC4E4D79682C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SM.Tools", "..\SM.Util\src\SM.Tools\SM.Tools.csproj", "{1DC1F687-CBD6-4B56-A801-A3E4CC4DFCA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{3179F631-2096-48F2-AE7E-CC4E4D79682C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3179F631-2096-48F2-AE7E-CC4E4D79682C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3179F631-2096-48F2-AE7E-CC4E4D79682C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DC1F687-CBD6-4B56-A801-A3E4CC4DFCA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DC1F687-CBD6-4B56-A801-A3E4CC4DFCA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DC1F687-CBD6-4B56-A801-A3E4CC4DFCA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DC1F687-CBD6-4B56-A801-A3E4CC4DFCA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
