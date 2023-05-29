@@ -1,18 +1,19 @@
 ﻿using FluentValidation;
+using SM.Financial.Core.Domain.Entities;
 
-namespace SM.Financial.Core.Application.Commands.BillToPay.Validation
+namespace SM.Financial.Core.Domain.Validations
 {
-    public class UpdateBillToPayCommandValidation : AbstractValidator<UpdateBillToPayCommand>
+    public class AccountReceivableValidation : AbstractValidator<AccountReceivable>
     {
-        public UpdateBillToPayCommandValidation()
+        public AccountReceivableValidation()
         {
             RuleFor(c => c.Id)
                 .NotEmpty()
                 .WithMessage("O id da conta não foi informado.");
 
-            RuleFor(c => c.SupplierId)
+            RuleFor(c => c.CustomerId)
                 .NotEmpty()
-                .WithMessage("O id do fornecedor não foi informado.");
+                .WithMessage("O id do cliente não foi informado.");
 
             RuleFor(c => c.Description)
                 .NotEmpty()

@@ -3,6 +3,7 @@
     public enum EStatus
     {
         PaidOut,
-        Unpaid
+        ToReceive,
+        Unpaid,
     }
 }

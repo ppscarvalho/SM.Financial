@@ -5,16 +5,16 @@ using SM.Financial.Core.Domain.Enuns;
 
 namespace SM.Financial.Infrastructure.Mappings
 {
-    public class FinancialMapping : IEntityTypeConfiguration<BillToPay>
+    public class AccountReceivableMapping : IEntityTypeConfiguration<AccountReceivable>
     {
-        public void Configure(EntityTypeBuilder<BillToPay> builder)
+        public void Configure(EntityTypeBuilder<AccountReceivable> builder)
         {
-            builder.ToTable("BillToPay");
+            builder.ToTable("AccountReceivable");
 
             builder.Property(c => c.Id)
                 .IsRequired();
 
-            builder.Property(c => c.SupplierId)
+            builder.Property(c => c.CustomerId)
                 .IsRequired();
 
             builder.Property(c => c.Description)
@@ -24,7 +24,7 @@ namespace SM.Financial.Infrastructure.Mappings
             builder.Property(c => c.DueDate)
                 .IsRequired();
 
-            builder.Property(c => c.Amout)
+            builder.Property(c => c.Value)
                 .HasColumnType("decimal(18,2)")
                 .IsRequired();
 

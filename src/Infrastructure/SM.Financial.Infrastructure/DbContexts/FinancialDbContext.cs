@@ -13,6 +13,7 @@ namespace SM.Financial.Infrastructure.DbContexts
     {
         private readonly IMediatorHandler _mediatorHandler;
         public DbSet<BillToPay> BillToPay { get; set; }
+        public DbSet<AccountReceivable> AccountReceivable { get; set; }
 
         public FinancialDbContext(DbContextOptions<FinancialDbContext> options, IMediatorHandler mediatorHandler)
                 : base(options)

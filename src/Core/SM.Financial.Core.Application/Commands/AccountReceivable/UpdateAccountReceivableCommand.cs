@@ -1,31 +1,31 @@
-﻿using SM.Financial.Core.Application.Commands.BillToPay.Validation;
+﻿using SM.Financial.Core.Application.Commands.AccountReceivable.Validation;
 using SM.Financial.Core.Domain.Enuns;
 using SM.Resource.Messagens;
 
-namespace SM.Financial.Core.Application.Commands.BillToPay
+namespace SM.Financial.Core.Application.Commands.AccountReceivable
 {
-    public class UpdateBillToPayCommand : CommandHandler
+    public class UpdateAccountReceivableCommand : CommandHandler
     {
         public Guid Id { get; private set; }
-        public Guid SupplierId { get; private set; }
+        public Guid CustomerId { get; private set; }
         public string? Description { get; private set; }
         public DateTime DueDate { get; private set; }
         public decimal Value { get; private set; }
         public EStatus Status { get; private set; }
 
-        public UpdateBillToPayCommand(Guid id, Guid supplierId, string? description, DateTime dueDate, decimal value, EStatus status)
+        public UpdateAccountReceivableCommand(Guid id, Guid customerId, string? description, DateTime dueDate, decimal value)
         {
             Id = id;
-            SupplierId = supplierId;
+            CustomerId = customerId;
             Description = description;
             DueDate = dueDate;
             Value = value;
-            Status = status;
+            Status = EStatus.ToReceive;
         }
 
         public override bool IsValid()
         {
-            ValidationResult = new UpdateBillToPayCommandValidation().Validate(this);
+            ValidationResult = new UpdateAccountReceivableCommandValidation().Validate(this);
             return ValidationResult.IsValid;
         }
     }

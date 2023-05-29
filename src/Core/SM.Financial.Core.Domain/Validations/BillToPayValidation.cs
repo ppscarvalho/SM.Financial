@@ -23,7 +23,7 @@ namespace SM.Financial.Core.Domain.Validations
                 .NotEmpty()
                 .WithMessage("A data de vencimento da conta não foi informada.");
 
-            RuleFor(c => c.Amout)
+            RuleFor(c => c.Value)
                 .NotEmpty()
                 .WithMessage("o valor da conta não foi informado.");
         }

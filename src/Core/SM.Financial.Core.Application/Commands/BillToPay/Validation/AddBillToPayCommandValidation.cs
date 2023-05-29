@@ -6,7 +6,7 @@ namespace SM.Financial.Core.Application.Commands.BillToPay.Validation
     {
         public AddBillToPayCommandValidation()
         {
-            RuleFor(c => c.SuuplierId)
+            RuleFor(c => c.SupplierId)
                 .NotEmpty()
                 .WithMessage("O id do fornecedor não foi informado.");
 
@@ -18,7 +18,7 @@ namespace SM.Financial.Core.Application.Commands.BillToPay.Validation
                 .NotEmpty()
                 .WithMessage("A data de vencimento da conta não foi informada.");
 
-            RuleFor(c => c.Amout)
+            RuleFor(c => c.Value)
                 .NotEmpty()
                 .WithMessage("o valor da conta não foi informado.");
         }

@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using MediatR;
-using SM.Financial.Core.Application.Commands.BillToPay;
+using SM.Financial.Core.Application.Commands.AccountReceivable;
 using SM.Financial.Core.Application.Models;
-using SM.Financial.Core.Application.Queries.BillToPay;
+using SM.Financial.Core.Application.Queries.AccountReceivable;
 using SM.MQ.Models;
-using SM.MQ.Models.BillToPlay;
+using SM.MQ.Models.AccountReceivable;
 using SM.MQ.Operators;
 using SM.Resource.Communication.Mediator;
 using SM.Resource.Messagens.CommonMessage.Notifications;
@@ -12,14 +12,14 @@ using SM.Util.Extensions;
 
 namespace SM.Financial.Core.Application.Consumers
 {
-    public class RPCConsumerBillToPay : Consumer<RequestIn>
+    public class RPCConsumerAccountReceivable : Consumer<RequestIn>
     {
         private readonly IMediatorHandler _mediatorHandler;
         private readonly IMapper _mapper;
         private readonly IMediator _mediatorQuery;
         private readonly DomainNotificationHandler _notifications;
 
-        public RPCConsumerBillToPay(
+        public RPCConsumerAccountReceivable(
             IMapper mapper,
             IMediatorHandler mediatorHandler,
             INotificationHandler<DomainNotification> notifications,
@@ -35,46 +35,46 @@ namespace SM.Financial.Core.Application.Consumers
         {
             switch (context.Message.Queue)
             {
-                case "GetBillToPayById":
-                    await GetBillToPayById(context);
+                case "GetAccountReceivableById":
+                    await GetAccountReceivableById(context);
                     break;
 
-                case "GetAllBillToPay":
-                    await GetAllBillToPay(context);
+                case "GetAllAccountReceivable":
+                    await GetAllAccountReceivable(context);
                     break;
 
-                case "AddBillToPay":
-                    await AddBillToPay(context);
+                case "AddAccountReceivable":
+                    await AddAccountReceivable(context);
                     break;
 
-                case "UpdateBillToPay":
-                    await UpdateBillToPay(context);
+                case "UpdateAccountReceivable":
+                    await UpdateAccountReceivable(context);
                     break;
 
                 default:
-                    await GetAllBillToPay(context);
+                    await GetAllAccountReceivable(context);
                     break;
             }
         }
 
-        private async Task GetBillToPayById(ConsumerContext<RequestIn> context)
+        private async Task GetAccountReceivableById(ConsumerContext<RequestIn> context)
         {
             var id = Guid.Parse(context.Message.Result);
-            var query = new GetBillToPayByIdQuery(id);
-            var result = _mapper.Map<ResponseBillToPayOut>(await _mediatorQuery.Send(query));
+            var query = new GetAccountReceivableByIdQuery(id);
+            var result = _mapper.Map<ResponseAccountReceivableOut>(await _mediatorQuery.Send(query));
             await context.RespondAsync(result);
         }
-        private async Task GetAllBillToPay(ConsumerContext<RequestIn> context)
+        private async Task GetAllAccountReceivable(ConsumerContext<RequestIn> context)
         {
-            var result = _mapper.Map<IEnumerable<ResponseBillToPayOut>>(await _mediatorQuery.Send(new GetAllBillToPayQuery()));
+            var result = _mapper.Map<IEnumerable<ResponseAccountReceivableOut>>(await _mediatorQuery.Send(new GetAllAccountReceivableQuery()));
             await context.RespondAsync(result.ToArray());
         }
 
-        private async Task AddBillToPay(ConsumerContext<RequestIn> context)
+        private async Task AddAccountReceivable(ConsumerContext<RequestIn> context)
         {
-            var billToPayModel = context.Message.Result.DeserializeObject<BillToPayModel>();
+            var AccountReceivableModel = context.Message.Result.DeserializeObject<AccountReceivableModel>();
 
-            var command = _mapper.Map<AddBillToPayCommand>(billToPayModel);
+            var command = _mapper.Map<AddAccountReceivableCommand>(AccountReceivableModel);
             var result = await _mediatorHandler.SendCommand(command);
 
             if (result.Success)
@@ -87,11 +87,11 @@ namespace SM.Financial.Core.Application.Consumers
             }
         }
 
-        private async Task UpdateBillToPay(ConsumerContext<RequestIn> context)
+        private async Task UpdateAccountReceivable(ConsumerContext<RequestIn> context)
         {
-            var categoriaModel = context.Message.Result.DeserializeObject<BillToPayModel>();
+            var categoriaModel = context.Message.Result.DeserializeObject<AccountReceivableModel>();
 
-            var command = _mapper.Map<UpdateBillToPayCommand>(categoriaModel);
+            var command = _mapper.Map<UpdateAccountReceivableCommand>(categoriaModel);
             var result = await _mediatorHandler.SendCommand(command);
 
             if (result.Success)

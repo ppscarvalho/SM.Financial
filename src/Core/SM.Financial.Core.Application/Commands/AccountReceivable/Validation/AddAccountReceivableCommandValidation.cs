@@ -1,18 +1,15 @@
 ﻿using FluentValidation;
 
-namespace SM.Financial.Core.Application.Commands.BillToPay.Validation
+namespace SM.Financial.Core.Application.Commands.AccountReceivable.Validation
 {
-    public class UpdateBillToPayCommandValidation : AbstractValidator<UpdateBillToPayCommand>
+    public class AddAccountReceivableCommandValidation : AbstractValidator<AddAccountReceivableCommand>
     {
-        public UpdateBillToPayCommandValidation()
+        public AddAccountReceivableCommandValidation()
         {
-            RuleFor(c => c.Id)
-                .NotEmpty()
-                .WithMessage("O id da conta não foi informado.");
 
-            RuleFor(c => c.SupplierId)
+            RuleFor(c => c.CustomerId)
                 .NotEmpty()
-                .WithMessage("O id do fornecedor não foi informado.");
+                .WithMessage("O id do cliente não foi informado.");
 
             RuleFor(c => c.Description)
                 .NotEmpty()
@@ -28,3 +25,4 @@ namespace SM.Financial.Core.Application.Commands.BillToPay.Validation
         }
     }
 }
+

@@ -44,6 +44,7 @@ namespace SM.Financial.Infrastructure.Extensions
         private static void AddRepositories(this IServiceCollection services)
         {
             services.AddScoped<IBillToPayRepository, BillToPayRepository>();
+            services.AddScoped<IAccountReceivableRepository, AccountReceivableRepository>();
         }
     }
 }
